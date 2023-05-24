@@ -1,3 +1,11 @@
+<?php
+  require_once("config.php");
+
+  $data = new Config();
+
+  $all = $data -> obtainAll();
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -22,11 +30,10 @@
   <div class="contenedor">
 
     <div class="parte-izquierda">
-
       <div class="perfil">
         <h3 style="margin-bottom: 2rem;">Camper Skills.</h3>
-        <img src="images/Diseño sin título.png" alt="" class="imagenPerfil">
-        <h3>Maicol Estrada</h3>
+        <img src="images/logo.png" alt="" class="imagenPerfil">
+        <h3> Zharick Rojas </h3>
       </div>
       <div class="menus">
         <a href="/Home/home.php" style="display: flex;gap:2px;">
@@ -56,15 +63,40 @@
               <th scope="col">NOMBRES</th>
               <th scope="col">DIRECCION</th>
               <th scope="col">LOGROS</th>
+              <th scope="col">SER</th>
+              <th scope="col">REVIEW</th>
+              <th scope="col">SKILLS</th>
+              <th scope="col">INGLES</th>
+              <th scope="col">ASISTENCIA</th>
               <th scope="col">DETALLE</th>
+
             </tr>
           </thead>
           <tbody class="" id="tabla">
 
-            <!-- ///////Llenado DInamico desde la Base de Datos -->
+            <!-- ///////Llenado Dinamico desde la Base de Datos -->
          
-       
+            <?php
+              foreach($all as $key => $val){
+               
+              
+            ?>
+            <tr>
+              <td><?php echo $val['id']?>  </td>
+              <td><?php echo $val['nombres']?>  </td>
+              <td><?php echo $val['direccion']?>  </td>
+              <td><?php echo $val['logros']?>  </td>
+              <td><?php echo $val['ser']?>  </td>
+              <td><?php echo $val['review']?>  </td>
+              <td><?php echo $val['skills']?>  </td>
+              <td><?php echo $val['ingles']?>  </td>
+              <td><?php echo $val['asistencia']?>  </td>
+              <td>
+                <a class="btn btn-danger" href="borrarEstudiantes.php?id=<?=$val['id'] ?>&&req=delete"> Borrar </a>
+              </td>
+            </tr>
 
+            <?php }?>
           </tbody>
         
         </table>
@@ -115,12 +147,66 @@
                 />
               </div>
 
-              <div class="mb-1 col-12">
+              <div class="mb-1 col-6">
                 <label for="logros" class="form-label">Logros</label>
                 <input 
                   type="text"
                   id="logros"
                   name="logros"
+                  class="form-control"  
+                 
+                />
+              </div>
+
+              <div class="mb-1 col-6">
+                <label for="ser" class="form-label"> Ser </label>
+                <input 
+                  type="text"
+                  id="ser"
+                  name="ser"
+                  class="form-control"  
+                 
+                />
+              </div>
+
+              <div class="mb-1 col-6">
+                <label for="review" class="form-label"> Review </label>
+                <input 
+                  type="text"
+                  id="review"
+                  name="review"
+                  class="form-control"  
+                 
+                />
+              </div>
+
+              <div class="mb-1 col-6">
+                <label for="skills" class="form-label"> Skills </label>
+                <input 
+                  type="text"
+                  id="skills"
+                  name="skills"
+                  class="form-control"  
+                 
+                />
+              </div>
+
+              <div class="mb-1 col-6">
+                <label for="ingles" class="form-label"> Inglés </label>
+                <input 
+                  type="text"
+                  id="ingles"
+                  name="ingles"
+                  class="form-control"  
+                />
+              </div>
+
+              <div class="mb-1 col-6">
+                <label for="asistencia" class="form-label"> Asistencia </label>
+                <input 
+                  type="text"
+                  id="asistencia"
+                  name="asistencia"
                   class="form-control"  
                  
                 />

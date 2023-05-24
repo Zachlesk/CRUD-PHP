@@ -6,8 +6,13 @@ if (isset($_POST['guardar'])) {
     $config = new Config();
 
     $config-> setNombres($_POST['nombres']);
-    $config->setDireccion($_POST['direccion']);
-    $config->setLogros($_POST['logros']);
+    $config-> setDireccion($_POST['direccion']);
+    $config-> setLogros($_POST['logros']);
+    $config-> setSer($_POST['ser']);
+    $config-> setReview($_POST['review']);
+    $config-> setSkills($_POST['skills']);
+    $config-> setIngles($_POST['ingles']);
+    $config-> setAsistencia($_POST['asistencia']);
 
     $config-> insertData();
 
