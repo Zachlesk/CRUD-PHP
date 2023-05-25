@@ -95,6 +95,7 @@
               <td><?php echo $val['especialidad']?>  </td>
               <td>
                 <a class="btn btn-danger" href="borrarEstudiantes.php?id=<?=$val['id'] ?>&&req=delete"> Borrar </a>
+                <a class="btn btn-warning" href="actualizarEstudiantes.php?id=<?=$val['id'] ?>"> Editar </a>
               </td>
             </tr>
 

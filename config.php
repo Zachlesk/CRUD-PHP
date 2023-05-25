@@ -141,11 +141,32 @@ class Config{
             return $stm -> fetchAll();
             echo "<script> alert('Registro eliminado');document.location='estudiantes.php'</script>'";
         } catch (Exception $e) {
-            return e->getMessage();
+            return $e->getMessage();
         }
     }
 
-
+    public function selectOne() {
+        try {
+            $stm = $this->dbCnx -> prepare("SELECT * FROM campers WHERE id=?");
+            $stm -> execute([$this->id]);
+            return $stm -> fetchAll();
+            
+        } catch (Exception $e) {
+            return 
+            $e->getMessage();
+        }
     }
 
+    public function update() {
+
+        try {
+            $stm = $this->dbCnx -> prepare("UPDATE campers SET nombres = ?, direccion = ?, logros = ? WHERE id=?");
+            $stm -> execute([$this->nombres, $this->direccion, $this->logros, $this->id]);
+
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+
+    }
+}
 ?>
