@@ -13,6 +13,7 @@ if (isset($_POST['guardar'])) {
     $config-> setSkills($_POST['skills']);
     $config-> setIngles($_POST['ingles']);
     $config-> setAsistencia($_POST['asistencia']);
+    $config-> setEspecialidad($_POST['especialidad']);
 
     $config-> insertData();
 

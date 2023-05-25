@@ -68,6 +68,7 @@
               <th scope="col">SKILLS</th>
               <th scope="col">INGLES</th>
               <th scope="col">ASISTENCIA</th>
+              <th scope="col">ESPECIALIDAD</th>
               <th scope="col">DETALLE</th>
 
             </tr>
@@ -91,6 +92,7 @@
               <td><?php echo $val['skills']?>  </td>
               <td><?php echo $val['ingles']?>  </td>
               <td><?php echo $val['asistencia']?>  </td>
+              <td><?php echo $val['especialidad']?>  </td>
               <td>
                 <a class="btn btn-danger" href="borrarEstudiantes.php?id=<?=$val['id'] ?>&&req=delete"> Borrar </a>
               </td>
@@ -161,7 +163,7 @@
               <div class="mb-1 col-6">
                 <label for="ser" class="form-label"> Ser </label>
                 <input 
-                  type="text"
+                  type="number"
                   id="ser"
                   name="ser"
                   class="form-control"  
@@ -172,7 +174,7 @@
               <div class="mb-1 col-6">
                 <label for="review" class="form-label"> Review </label>
                 <input 
-                  type="text"
+                  type="number"
                   id="review"
                   name="review"
                   class="form-control"  
@@ -183,37 +185,48 @@
               <div class="mb-1 col-6">
                 <label for="skills" class="form-label"> Skills </label>
                 <input 
-                  type="text"
+                  type="number"
                   id="skills"
                   name="skills"
                   class="form-control"  
-                 
+                
                 />
               </div>
 
-              <div class="mb-1 col-6">
+              <div class="mb-1 col-12">
                 <label for="ingles" class="form-label"> Inglés </label>
-                <input 
-                  type="text"
-                  id="ingles"
-                  name="ingles"
-                  class="form-control"  
-                />
+                <select class="form-select" aria-label="Default select example" id="ingles"
+                  name="ingles" required>
+                  <option selected>Selecione su nivel de Ingles</option>
+                  <option value="Básico"> Básico </option>
+                  <option value="Intermedio"> Intermedio </option>
+                  <option value="Avanzado"> Avanzado </option>
+                </select>
               </div>
 
-              <div class="mb-1 col-6">
+              <div class="mb-1 col-12">
                 <label for="asistencia" class="form-label"> Asistencia </label>
                 <input 
                   type="text"
                   id="asistencia"
                   name="asistencia"
                   class="form-control"  
-                 
+                
                 />
               </div>
 
+              <div class="mb-1 col-12">
+                <label for="especialidad" class="form-label"> Especialidad </label>
+                <select class="form-select" aria-label="Default select example" id="especialidad"
+                  name="especialidad" required>
+                  <option selected> Selecione su especialidad </option>
+                  <option value="Front-End"> Front-End </option>
+                  <option value="Back-End"> Back-End </option>
+                  <option value="Full-Stack"> Full-Stack </option>
+              </div>
+
               <div class=" col-12 m-2">
-                <input type="submit" class="btn btn-primary" value="guardar" name="guardar"/>
+                <input type="submit" class="btn btn-primary" value="Guardar" name="guardar"/>
               </div>
             </form>  
          </div>       

@@ -12,9 +12,10 @@ class Config{
     private $skills;
     private $ingles;
     private $asistencia;
+    private $especialidad;
     protected $dbCnx;
 
-    public function __construct($id= 0, $nombres= "", $direccion= "", $logros= "", $ser= "", $review= "", $skills= "", $ingles= "", $asistencia= "") {
+    public function __construct($id= 0, $nombres= "", $direccion= "", $logros= "", $ser= 0, $review= 0, $skills= 0, $ingles= "", $asistencia= "", $especialidad= "",) {
         
         $this->id = $id;
         $this->nombres = $nombres;
@@ -25,6 +26,7 @@ class Config{
         $this->skills = $skills;
         $this->ingles = $ingles;
         $this->asistencia = $asistencia;
+        $this->especialidad = $especialidad;
 
         $this->dbCnx = new PDO(DB_TYPE.":host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PWD, [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]);
     } 
@@ -102,11 +104,19 @@ class Config{
             return $this->asistencia;
         }
 
+        public function setEspecialidad($especialidad) {
+            $this->especialidad = $especialidad;
+        }
+
+        public function getEspecialidad() {
+            return $this->especialidad;
+        }
+
 
         public function insertData () {
             try { 
-                $stm = $this->dbCnx -> prepare("INSERT INTO campers (nombres,direccion,logros,ser,review,skills,ingles,asistencia) VALUES (?,?,?,?,?,?,?,?)");
-                $stm -> execute ([$this->nombres, $this->direccion, $this->logros, $this->ser, $this->review, $this->skills, $this->ingles, $this->asistencia]);
+                $stm = $this->dbCnx -> prepare("INSERT INTO campers (nombres,direccion,logros,ser,review,skills,ingles,asistencia,especialidad) VALUES (?,?,?,?,?,?,?,?,?)");
+                $stm -> execute ([$this->nombres, $this->direccion, $this->logros, $this->ser, $this->review, $this->skills, $this->ingles, $this->asistencia, $this->especialidad]);
     } catch (Exception $e) {
     return $e->getMessage();
     }
