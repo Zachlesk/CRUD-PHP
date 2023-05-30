@@ -1,14 +1,8 @@
 <?php
 
+require_once("Estudiante.php");
 
-ini_set("display_errors", 1);
-
-ini_set("display_startup_errors", 1);
-
-error_reporting(E_ALL);
-
-require_once("config.php");
-$data = new Config();
+$data = new Estudiante();
 
 $id = $_GET["id"];
 $data->setId($id);

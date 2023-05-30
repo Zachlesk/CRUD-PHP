@@ -1,7 +1,13 @@
 <?php
-  require_once("config.php");
+ini_set("display_errors", 1);
 
-  $data = new Config();
+ini_set("display_startup_errors", 1);
+
+error_reporting(E_ALL);
+
+  require_once("Estudiante.php");
+
+  $data = new Estudiante();
 
   $all = $data -> obtainAll();
 
