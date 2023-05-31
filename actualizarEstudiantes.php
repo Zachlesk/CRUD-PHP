@@ -2,7 +2,8 @@
 
 require_once("Estudiante.php");
 
-$data = new Estudiante();
+$data = new Estudiante
+();
 
 $id = $_GET["id"];
 $data->setId($id);

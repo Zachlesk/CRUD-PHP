@@ -6,6 +6,8 @@ ini_set("display_startup_errors", 1);
 error_reporting(E_ALL);
 
   require_once("Estudiante.php");
+  require_once("../Login/LoginUser.php");
+  session_start();
 
   $data = new Estudiante();
 
@@ -39,10 +41,10 @@ error_reporting(E_ALL);
       <div class="perfil">
         <h3 style="margin-bottom: 2rem;">Camper Skills.</h3>
         <img src="images/logo.png" alt="" class="imagenPerfil">
-        <h3> Zharick Rojas </h3>
+        <h3> <?php echo $_SESSION['username'] ?> </h3>
       </div>
       <div class="menus">
-        <a href="/Home/home.php" style="display: flex;gap:2px;">
+        <a href="home.php" style="display: flex;gap:2px;">
           <i class="bi bi-house-door"> </i>
           <h3 style="margin: 0px;">Home</h3>
         </a>
